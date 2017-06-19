@@ -2,18 +2,24 @@
     "name": "vscode-open-react-component-style",
     "displayName": "Open React Component Style",
     "description": "Open style (.styl) file by the same name of the file in focus ",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "publisher": "hosseinagha",
     "engines": {
         "vscode": "^1.10.0"
     },
     "categories": [
+        "Keymaps",
         "Other"
     ],
+    "keywords": ["css-modules", "style-file", "react", "component"],
     "activationEvents": [
         "onCommand:extension.openComponentOrStyle"
     ],
     "main": "./src/extension.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/HosseinAgha/vscode-open-react-component-style.git"
+    },
     "contributes": {
         "commands": [{
             "command": "extension.openComponentOrStyle",
