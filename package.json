@@ -1,8 +1,9 @@
 {
     "name": "vscode-open-react-component-style",
     "displayName": "Open React Component Style",
+    "icon": "codeToStyl.png",
     "description": "Open style (.styl) file by the same name of the file in focus ",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "publisher": "hosseinagha",
     "engines": {
         "vscode": "^1.10.0"
