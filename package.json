@@ -1,0 +1,60 @@
+{
+    "name": "vscode-open-react-component-style",
+    "displayName": "Open React Component Style",
+    "description": "Open style (.styl) file by the same name of the file in focus ",
+    "version": "0.0.1",
+    "publisher": "hosseinagha",
+    "engines": {
+        "vscode": "^1.10.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onCommand:extension.openComponentOrStyle"
+    ],
+    "main": "./src/extension.js",
+    "contributes": {
+        "commands": [{
+            "command": "extension.openComponentOrStyle",
+            "title": "Open Component Or Style"
+        }],
+        "keybindings": [
+            {
+                "command": "extension.openComponentOrStyle",
+                "key": "ctrl+alt+s",
+                "mac": "cmd+ctrl+s",
+                "when": "editorIsOpen"
+            }
+        ],
+        "configuration": {
+            "type": "object",
+            "title": "Open Component or Style configuration",
+            "properties": {
+                "openComponentOrStyle.styleFileExt": {
+                    "type": "string",
+                    "default": ".styl",
+                    "enum": [".styl", ".less", ".sass", ".css"],
+                    "description": "Extension of style files"
+                },
+                "openComponentOrStyle.fileExts": {
+                    "type": "array",
+                    "default": [".ls", ".js"],
+                    "description": "Possible extensions of component files, presedence from first to last"
+                }
+            }
+        }
+    },
+    "scripts": {
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "node ./node_modules/vscode/bin/test"
+    },
+    "devDependencies": {
+        "typescript": "^2.0.3",
+        "vscode": "^1.0.0",
+        "mocha": "^2.3.3",
+        "eslint": "^3.6.0",
+        "@types/node": "^6.0.40",
+        "@types/mocha": "^2.2.32"
+    }
+}
