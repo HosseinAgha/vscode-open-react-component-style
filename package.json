@@ -9,7 +9,6 @@
         "vscode": "^1.10.0"
     },
     "categories": [
-        "Keymaps",
         "Other"
     ],
     "keywords": ["css-modules", "style-file", "react", "component"],
