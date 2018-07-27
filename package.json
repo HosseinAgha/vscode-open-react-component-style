@@ -3,7 +3,7 @@
     "displayName": "Open React Component Style",
     "icon": "codeToStyl.png",
     "description": "Open style (.styl) file by the same name of the file in focus ",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "publisher": "hosseinagha",
     "engines": {
         "vscode": "^1.10.0"
@@ -11,7 +11,12 @@
     "categories": [
         "Other"
     ],
-    "keywords": ["css-modules", "style-file", "react", "component"],
+    "keywords": [
+        "css-modules",
+        "style-file",
+        "react",
+        "component"
+    ],
     "activationEvents": [
         "onCommand:extension.openComponentOrStyle"
     ],
@@ -21,10 +26,12 @@
         "url": "https://github.com/HosseinAgha/vscode-open-react-component-style.git"
     },
     "contributes": {
-        "commands": [{
-            "command": "extension.openComponentOrStyle",
-            "title": "Open Component Or Style"
-        }],
+        "commands": [
+            {
+                "command": "extension.openComponentOrStyle",
+                "title": "Open Component Or Style"
+            }
+        ],
         "keybindings": [
             {
                 "command": "extension.openComponentOrStyle",
@@ -40,12 +47,20 @@
                 "openComponentOrStyle.styleFileExt": {
                     "type": "string",
                     "default": ".styl",
-                    "enum": [".styl", ".less", ".sass", ".css"],
+                    "enum": [
+                        ".styl",
+                        ".less",
+                        ".sass",
+                        ".css"
+                    ],
                     "description": "Extension of style files"
                 },
                 "openComponentOrStyle.fileExts": {
                     "type": "array",
-                    "default": [".ls", ".js"],
+                    "default": [
+                        ".ls",
+                        ".js"
+                    ],
                     "description": "Possible extensions of component files, presedence from first to last"
                 }
             }
@@ -56,11 +71,11 @@
         "test": "node ./node_modules/vscode/bin/test"
     },
     "devDependencies": {
-        "typescript": "^2.0.3",
-        "vscode": "^1.0.0",
-        "mocha": "^2.3.3",
-        "eslint": "^3.6.0",
+        "@types/mocha": "^2.2.32",
         "@types/node": "^6.0.40",
-        "@types/mocha": "^2.2.32"
+        "eslint": "^3.6.0",
+        "mocha": "^2.3.3",
+        "typescript": "^2.0.3",
+        "vscode": "^1.0.0"
     }
 }
