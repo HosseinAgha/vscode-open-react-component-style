@@ -1,5 +1,3 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
 import vscode, { ExtensionContext, languages, RelativePattern } from 'vscode';
 import path from 'path';
 
@@ -47,7 +45,6 @@ export function activate(context: ExtensionContext) {
         return;
       }
 
-      // workspace.fs.readDirectory()
       const relativePattern = new RelativePattern(workspaceFolder, `${filePath}.*`);
       const files = await workspace.findFiles(relativePattern);
 
