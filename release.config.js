@@ -1,5 +1,10 @@
 module.exports = {
-  verifyConditions: ['semantic-release-vsce', '@semantic-release/github'],
+  verifyConditions: [
+    '@semantic-release/changelog',
+    'semantic-release-vsce',
+    '@semantic-release/github',
+    '@semantic-release/git',
+  ],
   prepare: {
     path: 'semantic-release-vsce',
     packageVsix: 'vscode-open-react-component-style.vsix',
