@@ -3,7 +3,7 @@
   "displayName": "Open React Component Style",
   "icon": "codeToStyl.png",
   "description": "Open component's style file and vice versa",
-  "version": "0.2.3",
+  "version": "0.3.0",
   "publisher": "hosseinagha",
   "engines": {
     "vscode": "^1.38.0"
