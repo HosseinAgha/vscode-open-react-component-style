@@ -1,9 +1,13 @@
-This extension is good for you if you are using css modules standard in your project. e.g. you have an `App.css` or `App.styl` file besides your components `App.js` file.  
-It will look for the corresponding (.styl, .css, .less) or (.js, .jsx) file with the same name and opens it. 
+![](./assets/demo.gif)
+
+Do you store the styles for your component in a `css`/`styl`/`scss` beside your (React) component? (e.g. `App.css` and `App.styl`)  
+Do you constantly switch between the style file and component file?  
+This extension is made for you ;)  
+Just run `Open Component Or Style` or use key bindings
 
 ## Extension Settings
 
-You can change supported component and style file extensions using the following settings:
+You can add new code (component) and style languages using the following settings:
 
-* `openComponentOrStyle.styleFileExt`: file extension of the style files (defualts to `.styl`) 
-* `openComponentOrStyle.fileExts`: array of possible file extensions for component files
+* `openComponentOrStyle.styleFileLanguages`: language of the style files
+* `openComponentOrStyle.codeFileLanguages`: language of the code (component) files

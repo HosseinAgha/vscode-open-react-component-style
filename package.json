@@ -2,11 +2,11 @@
     "name": "vscode-open-react-component-style",
     "displayName": "Open React Component Style",
     "icon": "codeToStyl.png",
-    "description": "Open style (.styl) file by the same name of the file in focus ",
-    "version": "0.1.2",
+    "description": "Open component's style file and vice versa",
+    "version": "0.2.0",
     "publisher": "hosseinagha",
     "engines": {
-        "vscode": "^1.10.0"
+        "vscode": "^1.38.0"
     },
     "categories": [
         "Other"
@@ -20,7 +20,7 @@
     "activationEvents": [
         "onCommand:extension.openComponentOrStyle"
     ],
-    "main": "./src/extension.js",
+    "main": "./out/extension.js",
     "repository": {
         "type": "git",
         "url": "https://github.com/HosseinAgha/vscode-open-react-component-style.git"
@@ -44,22 +44,24 @@
             "type": "object",
             "title": "Open Component or Style configuration",
             "properties": {
-                "openComponentOrStyle.styleFileExt": {
-                    "type": "string",
-                    "default": ".styl",
-                    "enum": [
-                        ".styl",
-                        ".less",
-                        ".sass",
-                        ".css"
-                    ],
-                    "description": "Extension of style files"
-                },
-                "openComponentOrStyle.fileExts": {
+                "openComponentOrStyle.styleFileLanguages": {
                     "type": "array",
                     "default": [
-                        ".ls",
-                        ".js"
+                        "css",
+                        "stylus",
+                        "less",
+                        "scss"
+                    ],
+                    "description": "Possible extensions of style sheet files, presedence from first to last"
+                },
+                "openComponentOrStyle.codeFileLanguages": {
+                    "type": "array",
+                    "default": [
+                        "livescript",
+                        "javascript",
+                        "javascriptreact",
+                        "typescript",
+                        "typescriptreact"
                     ],
                     "description": "Possible extensions of component files, presedence from first to last"
                 }
@@ -67,15 +69,19 @@
         }
     },
     "scripts": {
-        "postinstall": "node ./node_modules/vscode/bin/install",
-        "test": "node ./node_modules/vscode/bin/test"
+        "vscode:prepublish": "yarn run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "pretest": "yarn run compile",
+        "test": "node ./out/test/runTest.js"
     },
     "devDependencies": {
-        "@types/mocha": "^2.2.32",
-        "@types/node": "^6.0.40",
-        "eslint": "^3.6.0",
-        "mocha": "^2.3.3",
-        "typescript": "^2.0.3",
-        "vscode": "^1.0.0"
+        "@types/node": "^10.12.21",
+        "@types/vscode": "^1.38.0",
+        "jest": "^24.9.0",
+        "prettier": "^1.18.2",
+        "tslint": "^5.12.1",
+        "typescript": "^3.3.1",
+        "vscode-test": "^1.2.0"
     }
 }
