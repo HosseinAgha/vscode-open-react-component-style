@@ -1,87 +1,92 @@
 {
-    "name": "vscode-open-react-component-style",
-    "displayName": "Open React Component Style",
-    "icon": "codeToStyl.png",
-    "description": "Open component's style file and vice versa",
-    "version": "0.2.0",
-    "publisher": "hosseinagha",
-    "engines": {
-        "vscode": "^1.38.0"
-    },
-    "categories": [
-        "Other"
+  "name": "vscode-open-react-component-style",
+  "displayName": "Open React Component Style",
+  "icon": "codeToStyl.png",
+  "description": "Open component's style file and vice versa",
+  "version": "0.2.0",
+  "publisher": "hosseinagha",
+  "engines": {
+    "vscode": "^1.38.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "css-modules",
+    "style-file",
+    "react",
+    "component"
+  ],
+  "activationEvents": [
+    "onCommand:extension.openComponentOrStyle"
+  ],
+  "main": "./out/extension.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/HosseinAgha/vscode-open-react-component-style.git"
+  },
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.openComponentOrStyle",
+        "title": "Open Component Or Style"
+      }
     ],
-    "keywords": [
-        "css-modules",
-        "style-file",
-        "react",
-        "component"
+    "keybindings": [
+      {
+        "command": "extension.openComponentOrStyle",
+        "key": "ctrl+alt+s",
+        "mac": "cmd+ctrl+s",
+        "when": "editorIsOpen"
+      }
     ],
-    "activationEvents": [
-        "onCommand:extension.openComponentOrStyle"
-    ],
-    "main": "./out/extension.js",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/HosseinAgha/vscode-open-react-component-style.git"
-    },
-    "contributes": {
-        "commands": [
-            {
-                "command": "extension.openComponentOrStyle",
-                "title": "Open Component Or Style"
-            }
-        ],
-        "keybindings": [
-            {
-                "command": "extension.openComponentOrStyle",
-                "key": "ctrl+alt+s",
-                "mac": "cmd+ctrl+s",
-                "when": "editorIsOpen"
-            }
-        ],
-        "configuration": {
-            "type": "object",
-            "title": "Open Component or Style configuration",
-            "properties": {
-                "openComponentOrStyle.styleFileLanguages": {
-                    "type": "array",
-                    "default": [
-                        "css",
-                        "stylus",
-                        "less",
-                        "scss"
-                    ],
-                    "description": "Possible extensions of style sheet files, presedence from first to last"
-                },
-                "openComponentOrStyle.codeFileLanguages": {
-                    "type": "array",
-                    "default": [
-                        "livescript",
-                        "javascript",
-                        "javascriptreact",
-                        "typescript",
-                        "typescriptreact"
-                    ],
-                    "description": "Possible extensions of component files, presedence from first to last"
-                }
-            }
+    "configuration": {
+      "type": "object",
+      "title": "Open Component or Style configuration",
+      "properties": {
+        "openComponentOrStyle.styleFileLanguages": {
+          "type": "array",
+          "default": [
+            "css",
+            "stylus",
+            "less",
+            "scss"
+          ],
+          "description": "Possible extensions of style sheet files, presedence from first to last"
+        },
+        "openComponentOrStyle.codeFileLanguages": {
+          "type": "array",
+          "default": [
+            "livescript",
+            "javascript",
+            "javascriptreact",
+            "typescript",
+            "typescriptreact"
+          ],
+          "description": "Possible extensions of component files, presedence from first to last"
         }
-    },
-    "scripts": {
-        "vscode:prepublish": "yarn run compile",
-        "compile": "tsc -p ./",
-        "watch": "tsc -watch -p ./",
-        "pretest": "yarn run compile",
-        "test": "node ./out/test/runTest.js"
-    },
-    "devDependencies": {
-        "@types/node": "^10.12.21",
-        "@types/vscode": "^1.38.0",
-        "jest": "^24.9.0",
-        "prettier": "^1.18.2",
-        "tslint": "^5.12.1",
-        "typescript": "^3.3.1",
-        "vscode-test": "^1.2.0"
+      }
     }
+  },
+  "scripts": {
+    "vscode:prepublish": "yarn run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "yarn run compile",
+    "test": "echo TO_BE_DESIGNED",
+    "semantic-release": "semantic-release"
+  },
+  "devDependencies": {
+    "@semantic-release/changelog": "^3.0.4",
+    "@semantic-release/git": "^7.0.16",
+    "@types/node": "^10.12.21",
+    "@types/vscode": "^1.38.0",
+    "jest": "^24.9.0",
+    "prettier": "^1.18.2",
+    "semantic-release": "^15.13.24",
+    "semantic-release-vsce": "^2.2.8",
+    "tslint": "^5.12.1",
+    "typescript": "^3.3.1",
+    "vscode-test": "^1.2.0"
+  }
 }
