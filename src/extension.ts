@@ -32,10 +32,25 @@ export function activate(context: ExtensionContext) {
         ? config.codeFileLanguages
         : null;
 
+      const correspondingFile = isCodeFile ? 'component file' : 'style file';
+
       if (targetLanugages == null) return;
 
-      const fileName = path.basename(openDocument.fileName).replace(/\..*?$/, '');
-      const files = await workspace.findFiles(`**/${fileName}.*`);
+      const filePath = workspace
+        .asRelativePath(openDocument.fileName)
+        .replace(/\..*?$/, '');
+      const workspaceFolder = workspace.getWorkspaceFolder(openDocument.uri);
+      if (workspaceFolder == null) {
+        window.showErrorMessage(
+          `file should be in a workspace to show ${correspondingFile}`,
+        );
+        return;
+      }
+
+      // workspace.fs.readDirectory()
+      const relativePattern = new RelativePattern(workspaceFolder, `${filePath}.*`);
+      const files = await workspace.findFiles(relativePattern);
+
       const filesWithSameName = files.filter(
         ({ path }) => path !== openDocument.fileName,
       );
@@ -50,7 +65,6 @@ export function activate(context: ExtensionContext) {
         }
       }
 
-      const correspondingFile = isCodeFile ? 'component file' : 'style file';
       window.showWarningMessage(
         `cannot open ${path.basename(
           openDocument.fileName,
